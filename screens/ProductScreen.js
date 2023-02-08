@@ -11,7 +11,7 @@ import {
 import React, { useState, useEffect, useCallback } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 import axios from "axios";
-import { Item } from "react-navigation-header-buttons";
+
 
 const ProductScreen = ({ navigation }) => {
   const [product, setProduct] = useState([]);
@@ -64,7 +64,7 @@ const ProductScreen = ({ navigation }) => {
   const _renderItem = ({ item }) => {
     return (
       <SafeAreaView>
-        <TouchableOpacity style= {styles.addButtonStyle} onPress ={()=>{navigation.navigate('Detail')}}>
+        <TouchableOpacity style= {styles.addButtonStyle} onPress ={()=>{navigation.navigate('Detail',{id:item.id,title:item.title})}}>
           <View style={{ flex: 1 }}>
             <View style={{ flex: 1, flexDirection: "row", margin: 5 }}>
               <Image
